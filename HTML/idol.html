@@ -174,17 +174,36 @@
     <div align="center">
   
         <form  action="nothing.php" method="Get">
-            <label for="name">Name: &nbsp; &nbsp; &nbsp; &nbsp;</label>
-            <input type="text" name="your_name" id="name" required><label for="">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </label>
-            <br><br>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Name:</td>
+                        <td><input type="text" name="your_name" id="name" required></td>
+                    </tr>
+                
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
 
-            <label for="emal">Email: &nbsp; &nbsp; &nbsp; &nbsp;</label>
-            <input type="email" name="email" id="emal" required><label for="">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;    </label>
-            <br><br>
+                    <tr>
+                        <td>Email:</td>
+                        <td><input type="email" name="email" id="email" required></td>
+                    </tr>
+        
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>   
 
-            <label for="cmt">Comment: &nbsp; </label>
-            <textarea name="comment" id="cmt" cols="30" rows="10"></textarea>
-            <br><br>
+                    <tr>
+                        <td>Comment:</td>
+                        <td><textarea name="comment" id="cmt" cols="30" rows="10"></textarea></td>
+                    </tr>
+                </tbody>
+
+            </table>
+            <br>
             <button type="submit">Add</button>
         </form>
     <br>
