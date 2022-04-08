@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="h1" onclick="change()">CSS Dom</h1>
+    <img id="img" src="nate1.jpg" alt="nate" width="400" height="200">
+    <br><br>
+    <button type="button" onclick="changeSize()">Change</button>
+    <br><br>
+    <img id="image" src="nate2.jpg" alt="nate" width="400" height="200" onmouseover="big()" onmouseout="normal()">
+
+    <script>
+        function change(){
+            let h1=document.querySelector("#h1");
+            h1.style.backgroundColor="red";
+            h1.style.color="white";
+        }
+
+        function changeSize(){
+            let img=document.querySelector("#img");
+            img.style.width="700px";
+            img.style.height="400px";
+        }
+
+        function big(){
+            let image=document.querySelector("#image");
+            image.style.width="500px"
+            image.style.height="450px"
+        }
+
+        function normal(){
+            let image=document.querySelector("#image");
+            image.style.width="300px"
+            image.style.height="250px"
+        }
+    </script>
+</body>
+</html>
