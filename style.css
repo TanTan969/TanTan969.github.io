@@ -133,7 +133,7 @@ margin-bottom: 20px;
     background-color: rgb(230, 230, 230);
 }
 
-.htmltxt,.jstxt,.csstxt{
+.htmltxt,.jstxt,.csstxt,.jqtxt{
     margin: 30px;
     width: 170px;
     height:220px;
@@ -165,6 +165,15 @@ margin-bottom: 20px;
 
 .csstxt:hover{
     color: blue;
+    transform: scale(1.1);
+    -webkit-filter: none;
+    transition: 0.3s;
+    background-color: white;
+    border: 0px;
+}
+
+.jqtxt:hover{
+    color: black;
     transform: scale(1.1);
     -webkit-filter: none;
     transition: 0.3s;
