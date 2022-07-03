@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+</head>
+<body>
+   
+    <h2>My Products</h2>
+    <div class="box">
+        <div class="product">
+            <img src="pics/Boot.png" alt="Boot">
+            <p>Boot</p>
+            <button type="submit">Add to cart</button>
+            
+        </div>
+
+        <div class="product">
+            <img src="pics/jersey.png" alt="Jersey">
+            
+            <p>Jersey</p><button type="submit">Add to cart</button>
+            
+        </div>
+
+        <div class="product">
+            <img src="pics/glv.png" alt="Glove">
+            <p>Glove</p>
+            <button type="submit">Add to cart</button>
+            
+        </div>
+      
+
+    </div>
+
+    <style>
+        h2{
+            text-align: center;
+            margin-top: 150px;
+            margin-bottom: 50px;
+        }
+
+        
+
+        .box{
+            width: 80%;
+            text-align: center;
+            margin-left: 175px;
+        }
+
+        img{
+            height: 200px;
+            width: 150px;
+            border: 2px solid;
+            border-radius: 10px;
+        }
+        button{
+            margin-bottom: 15px;
+            height: 50px;
+            width: 100px;
+            background-color: red;
+            border: 0px;
+            border-radius: 10px;
+        }
+        .product{
+            
+            width: 152px;
+            display: inline-block;
+            margin-right: 50px;
+            border-radius: 5px;
+        }
+        button:hover{
+            cursor: pointer;
+            background-color: whitesmoke;
+            border: 2px solid;
+            transform: translate(4px,-5px);
+            transition-duration:3px;
+        }
+
+    </style>
+</body>
+</html>

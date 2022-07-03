@@ -14,9 +14,9 @@
         <input type="text" name="age" placeholder="Age">
         <br><br>
 
-        <input type="radio" id="single" name="relationship" value="Single" checked="checked">
+        <input type="radio" id="single" name="status" value="0" checked="checked">
         <label for="single">Single</label>
-        <input type="radio" id="married" name="relationship" value="Married">
+        <input type="radio" id="married" name="status" value="1">
         <label for="married">Married</label><br><br>
 
         <input type="text" name='spouse' placeholder="Spouse"><br><br>
@@ -26,12 +26,9 @@
     <script src="jquery.min.js"></script>
     <script>
         $(function(){
-            var s="input[name='spouse']";
+            var s = $("input[name='spouse']");
             $(s).hide(10);
-            $(s).on('default',function(){
-                $(s).hide(10);
-                
-            })
+
             $("#single").on('click',function(){
                 $(s).hide(10);
                 
@@ -40,6 +37,22 @@
             $("#married").on('click',function(){
                 $(s).show(10); 
                
+            })
+            $("form").on("submit",function(event){
+                event.preventDefault();
+                var name=$("input[name='username']").val();
+                var age=$("input[name='age']").val();
+                var status=$("input[name='status']:checked").val();
+                var data="";
+                if(status == 1){
+                    var spouse = $("input[name='spouse']").val();
+                    data += `My name is ${name} and ${age} years old.I am married and spouse name is ${spouse}.`;
+
+                }
+                else if(status==0){
+                    data +=`My name is ${name} and ${age} years old.I am single.`;
+                }
+                alert(data);
             })
         })
     </script>

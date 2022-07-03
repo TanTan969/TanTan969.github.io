@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery Hobby</title>
+</head>
+<body>
+    <form action="">
+        <input type="text" placeholder="Name" id="name">
+        <br>
+        <h2>Hobbies:</h2>
+        <input type="radio" id="read" name="hobby" value="reading">
+        <label for="read">Reading</label>
+        <input type="radio" id="guitar" name="hobby" value="playing Guitar">
+        <label for="guitar">Playing Guitar</label>
+        <input type="radio" id="game" name="hobby" value="playing video games">
+        <label for="game">Game</label><br><br><br>
+
+        <input type="submit" value="Save">
+
+        <script src="jquery.min.js"></script>
+        <script>
+            $(function(){
+                $("form").on('submit',function(){
+                    var name = $("#name").val();
+                    var hobby = $("input[name='hobby']:checked").val();
+                    alert(`My name is ${name} and ${hobby} is my hobby `);
+                })
+                
+            })
+        </script>
+
+
+    </form>
+</body>
+</html>

@@ -151,7 +151,7 @@ margin-bottom: 20px;
     -webkit-filter: none;
     transition: 0.3s;
     background-color: white;
-    border: 0px;
+    border: 2px solid black;
 }
 
 .jstxt:hover{
