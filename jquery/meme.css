@@ -1,0 +1,87 @@
+body{
+    background-color: rgb(230, 230, 230);
+}
+
+#main{
+
+    width: 80%;
+    white-space: nowrap;
+    background-color: white;
+    margin-left: 9.5%;
+    padding-top: 30px;
+    padding-bottom: 100px;
+
+}
+
+#memes{
+    height: 90px;
+    width: 80%;
+    border: solid 2px;
+    background-color: grey;
+    overflow-x:scroll;
+    overflow-y: hidden;
+    margin-top: 50px;
+    margin-left: 9.5%;
+      
+}
+
+
+#large_meme{
+    width: 48%;
+    height: 400px;
+    padding: 0px;
+    border: 2px solid;
+    margin-left: 7%;
+    margin-top: 30px;
+    display: inline-block;
+}
+
+#input{
+    width: 30%;
+    height: 400px;
+    margin-left: 30px;
+    position: absolute;
+    display: inline-block;
+    right: 220px;
+    top: 212px;
+    padding-top: 50px;
+    
+}
+
+.images{
+   margin-left: 2px;
+   margin-right: 2px;
+}
+
+.images:hover{
+    cursor: pointer;
+}
+.largememe{
+    width:100%;
+    border: solid 2px;
+}
+
+input{
+    width: 90%;
+    height: 40px;
+    margin-bottom: 30px;
+}
+
+.button{
+    width: 40%;
+    height: 40px;
+    background-color: red;
+    font-size: 20px;
+}
+
+.button:hover{
+    cursor: pointer;
+    background-color: cyan;
+    color: black;
+}
+
+h3{
+    padding-top: 120px;
+    font-size: 50px;
+    text-align: center;
+}

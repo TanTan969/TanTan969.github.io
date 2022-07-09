@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memes</title>
+    <link rel="stylesheet" href="meme.css">
+</head>
+<body>
+
+    <div id="main">
+        <h1 align="center">Meme Generator</h1>
+        <div id="memes">
+            
+        </div>
+        
+        <div id="large_meme">
+            <h3>Choose a meme</h3>
+        </div>
+
+        <div id="input">
+            <form action="" id="text">
+
+            </form>
+        </div>
+        
+
+    </div>
+
+    <script src="jquery.min.js"></script>
+    <script src="node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <script>
+        $(function(){
+            $.get("https://api.imgflip.com/get_memes",function(resp){
+                if(resp.success){
+                    console.log(resp.data.memes)
+                    var meme = resp.data.memes;
+                    var data = "";
+                    for (const row of meme) {
+                        data+=`<img src="${row.url}" data-id="${row.id}" data-name="${row.name}" data-box="${row.box_count}" alt="${row.name}" height="80px" class='images'>`;
+                    }
+                    $("#memes").html(data);
+                    
+                    $(".images").on("click",function(){
+                        var url = $(this).attr("src");
+                        var name = $(this).data("name");
+                        var nobox = $(this).data("box");
+                        var id = $(this).data("id");
+
+                        
+                        var large_meme =`<img src=${url} class="largememe">`
+                        $("#large_meme").html(large_meme);
+                        $("#large_meme").css("border","0px")
+
+                        var boxes=[];
+                        for (let n = 0; n < nobox ; n++) {
+                            boxes += `<input type="text" id="text${n}" placeholder="text #${n+1}"><br>`;
+                        };
+                        console.log(boxes);
+                        $("#text").html(`<h2>${name}</h2><br>${boxes} <input type='submit' class='button' value='Generate'>`);
+                        $("#text").on("submit",function(e){
+                            e.preventDefault();
+                            var texts=[];
+                            for (let i = 0; i < nobox; i++) {
+                                texts[i] = { text: $(`#text${i}`).val() }
+                            }
+
+                            $.post("https://api.imgflip.com/caption_image",{
+                            template_id: id,
+                            username: "thetpainghtut",
+                            password:"Apple!@#",
+                            boxes: texts 
+                            },function(alert){
+                                if(resp.success){
+                                    Swal.fire({
+                                        confirmButtonText: "Download Here!",
+                                        imageUrl: `${alert.data.url}`,
+                                        imageWidth: 400,
+                                        imageAlt: "Custom image",
+                                     });
+                                }
+                                else{
+                                    alert('Error');
+                                }
+                            })
+                    
+
+                        })
+
+                    })
+                    
+                    
+            
+                    
+                }
+
+            })
+            
+        })   
+
+        
+    </script>
+</body>
+</html>

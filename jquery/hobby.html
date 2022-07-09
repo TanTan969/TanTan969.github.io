@@ -11,11 +11,11 @@
         <input type="text" placeholder="Name" id="name">
         <br>
         <h2>Hobbies:</h2>
-        <input type="radio" id="read" name="hobby" value="reading">
+        <input type="checkbox" id="read" name="0" value="reading">
         <label for="read">Reading</label>
-        <input type="radio" id="guitar" name="hobby" value="playing Guitar">
+        <input type="checkbox" id="guitar" name="1" value="playing Guitar">
         <label for="guitar">Playing Guitar</label>
-        <input type="radio" id="game" name="hobby" value="playing video games">
+        <input type="checkbox" id="game" name="2" value="playing video games">
         <label for="game">Game</label><br><br><br>
 
         <input type="submit" value="Save">
@@ -25,11 +25,17 @@
             $(function(){
                 $("form").on('submit',function(){
                     var name = $("#name").val();
-                    var hobby = $("input[name='hobby']:checked").val();
-                    alert(`My name is ${name} and ${hobby} is my hobby `);
+                    var array=[];
+                    $("input[type='checkbox']:checked").each(function(){
+                    array.push($(this).val());
+                    });
+
+                    alert(`My name is ${name} and my hobbies are ${array}`);
                 })
                 
             })
+
+            
         </script>
 
 
