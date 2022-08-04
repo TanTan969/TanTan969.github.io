@@ -1,269 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tab</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      * {
-        font-family: "Open Sans", sans-serif;
-      }
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tab</title>
+  <style>
+    ul.link-wapper{
+      list-style: none;
+      text-align: center;
+    }
 
-      ul.link-wapper {
-        list-style: none;
-        text-align: center;
-      }
+    ul.link-wapper li{
+      display: inline-block;
+      padding: 10px;
+    }
 
-      ul.link-wapper li {
-        display: inline-block;
-        padding: 10px;
-      }
+    ul.link-wapper li a{
+      text-decoration: none;
+      color: black;
+      padding: 10px;
+    }
 
-      ul.link-wapper li a {
-        text-decoration: none;
-        color: black;
-        padding: 10px;
-      }
-
-      ul.link-wapper li a.active {
+    ul.link-wapper li a.active{
         color: #0037ff;
         border-bottom: 1px solid red;
-      }
+    }
 
-      .content {
-        max-width: 800px;
-        background-color: antiquewhite;
-        padding: 20px;
-        margin: 0 auto;
-        display: none;
-      }
+    .content{
+      max-width: 800px;
+      background-color: antiquewhite;
+      padding: 20px;
+      margin: 0 auto;
+      display: none;
 
-      .container {
-        max-width: 800px;
-      }
+    }
 
-      .products {
-        display: flex;
-        gap: 12px;
-        align-content: space-between;
-        text-align: center;
-        justify-content: center;
-      }
+    /* for shop */
+    .products {
+      display: flex;
+      gap: 20px;
+      align-content: space-between;
+      text-align: center;
 
-      .item_img {
-        max-width: 200px;
-        height: 200px;
-        border: 1px solid pink;
-        border-radius: 5px;
-      }
+    }
 
-      table {
-        width: 100%;
-        margin: 0 auto;
-        border-spacing: 0;
-      }
+    .item {
+      max-width: 240px;
+      
 
-      th,
-      td {
-        border: 1px solid black;
-        text-align: center;
-        padding: 15px;
-        border-radius: 2px;
-      }
+    }
+    .pics{
+      width: 200px;
+      height: 300px;
+    }
+  </style>
 
-      p.empty {
-        max-width: 300px;
-        margin: 0 auto;
-        font-size: 30px;
-      }
+  <script src="jquery.min.js"></script>
+  <script src="cart.js"></script>
 
-      .cart_title {
-        max-width: 100px;
-        margin: 0 auto;
-        text-decoration: underline;
-        padding-bottom: 20px;
-      }
+  <script>
+    $(function () { 
+      $('.content').first().slideDown();
 
-      button.addtoCart_btn {
-        border-radius: 5px;
-        outline: none;
-        border: 1px solid pink;
-        padding: 5px 10px;
-        background-color: white;
-      }
-
-      button.addtoCart_btn:hover {
-        border: 1px solid white;
-        background-color: pink;
-      }
-
-      @media (max-width: 768px) {
-        .products {
-          display: flex;
-          flex-direction: column;
-        }
-      }
-    </style>
-
-    <script src="jquery.min.js"></script>
-    <script src="cart.js"></script>
-    <script>
-      $(function (param) {
-        $(".content").first().slideDown();
-
-        $("ul.link-wapper li a").on("click", function (event) {
+      $('ul.link-wapper li a').on("click",function (event) { 
           var current_tab = $(this);
-          $("ul.link-wapper li a").removeClass("active");
-          current_tab.addClass("active");
+          $('ul.link-wapper li a').removeClass('active');
+          current_tab.addClass('active');
 
-          $(".content").slideUp();
-          current_tab_href = current_tab.attr("href"); // #about
+          $('.content').slideUp();
+          var current_tab_href = current_tab.attr('href'); // #about
           $(current_tab_href).slideDown(); // $('#about')
 
           event.preventDefault();
-        });
-      });
-    </script>
-    <script src="cart.js"></script>
-  </head>
-  <body>
-    <div class="tab">
-      <!-- Nav -->
-      <ul class="link-wapper">
-        <li>
-          <a href="#home" class="active">Home</a>
-        </li>
-        <li>
-          <a href="#about">About</a>
-        </li>
-        <li>
-          <a href="#contact">Contact</a>
-        </li>
-        <li>
-          <a href="#shop">Shop</a>
-        </li>
-        <li>
-          <a href="#cart">Cart</a>
-        </li>
-      </ul>
+      })
+    })
+  </script>
+</head>
+<body>
+  <div class="tab">
+    <!-- Nav -->
+    <ul class="link-wapper">
+      <li>
+        <a href="#home" class="active">Home</a>
+      </li>
+      <li>
+        <a href="#about">About</a>
+      </li>
+      <li>
+        <a href="#contact">Contact</a>
+      </li>
+      <li>
+        <a href="#shop">Shop</a>
+      </li>
+      <li>
+        <a href="#cart">Cart</a>
+      </li>
+    </ul>
 
-      <!-- Content -->
-      <div class="content" id="home">
-        <h2>Home Tab</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae,
-          fuga neque autem est fugit placeat mollitia sit ducimus. Quidem
-          voluptatum blanditiis porro excepturi eaque atque ad at officia illo
-          eligendi!
-        </p>
-      </div>
+    <!-- Content -->
+    <div class="content" id="home">
+      <h2>Home Tab</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, fuga neque autem est fugit placeat mollitia sit ducimus. Quidem voluptatum blanditiis porro excepturi eaque atque ad at officia illo eligendi!</p>
+    </div>
 
-      <div class="content" id="about">
-        <h2>About Tab</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae,
-          fuga neque autem est fugit placeat mollitia sit ducimus. Quidem
-          voluptatum blanditiis porro excepturi eaque atque ad at officia illo
-          eligendi!
-        </p>
-      </div>
+    <div class="content" id="about">
+      <h2>About Tab</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, fuga neque autem est fugit placeat mollitia sit ducimus. Quidem voluptatum blanditiis porro excepturi eaque atque ad at officia illo eligendi!</p>
+    </div>
 
-      <div class="content" id="contact">
-        <h2>Contact Tab</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae,
-          fuga neque autem est fugit placeat mollitia sit ducimus. Quidem
-          voluptatum blanditiis porro excepturi eaque atque ad at officia illo
-          eligendi!
-        </p>
-      </div>
+    <div class="content" id="contact">
+      <h2>Contact Tab</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, fuga neque autem est fugit placeat mollitia sit ducimus. Quidem voluptatum blanditiis porro excepturi eaque atque ad at officia illo eligendi!</p>
+    </div>
 
-      <!-- Shop -->
-      <div class="content" id="shop">
-        <div class="container">
-          <h2 style="text-align: center">Popular Products</h2>
-          <div class="products">
-            <div class="item">
-              <img
-                src="pics/glv.png"
-                alt="Glove"
-                class="item_img"
-              />
-              <h4>Glove</h4>
-              <p>8000 ks</p>
-              <button
-                class="addtoCart_btn"
-                data-id="1"
-                data-name="Glove"
-                data-price="8000"
-              >
-                AddtoCart
-              </button>
-            </div>
-            <div class="item">
-              <img
-                src="pics/Boot.png"
-                alt="Boot"
-                class="item_img"
-              />
-              <h4>Boot</h4>
-              <p>15000 ks</p>
-              <button
-                class="addtoCart_btn"
-                data-id="2"
-                data-name="Boot"
-                data-price="15000"
-              >
-                AddtoCart
-              </button>
-            </div>
-            <div class="item">
-              <img
-                src="pics/jersey.png"
-                alt="Jersey"
-                class="item_img"
-              />
-              <h4>Jersey</h4>
-              <p>20000 ks</p>
-              <button
-                class="addtoCart_btn"
-                data-id="3"
-                data-name="Jersey"
-                data-price="20000"
-                data-qty="1"
-              >
-                AddtoCart
-              </button>
-            </div>
-          </div>
+    <div class="content" id="shop">
+      <h2>Shop Page</h2>
+      <div class="products">
+        <div class="item">
+            <img src="pics/Boot.png" alt="Boot" class="pics">
+            <h4>Item One</h4>
+            <p>15000 Ks</p>
+            <button class="atcbtn" data-id="1" data-name="Boot" data-price="15000">Addtocart</button>
+        </div>
+        <div class="item">
+            <img src="pics/glove.jpg" alt="Glove" class="pics">
+            <h4>Item Two</h4>
+            <p>1340 Ks</p>
+            <button class="atcbtn" data-id="2" data-name="Glove" data-price="8000">Addtocart</button>
+        </div>
+        <div class="item">
+            <img src="pics/jersey.png" alt="Jersey" class="pics">
+            <h4>Item Three</h4>
+            <p>4400 Ks</p>
+            <button class="atcbtn" data-id="3" data-name="Jersey" data-price="20000">Addtocart</button>
         </div>
       </div>
-
-      <div class="content" id="cart">
-        <h2 class="cart_title">Cart Tab</h2>
-        <table class="table">
-          <thead>
-            <th>Item Name</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Total</th>
-          </thead>
-          <tbody class="product_data"></tbody>
-          <tfoot>
-            <tr>
-              <td colspan="3">Total cost</td>
-              <td class="total_cost"></td>
-            </tr>
-          </tfoot>
-        </table>
-      </div>
     </div>
-  </body>
+
+    <div class="content" id="cart">
+      
+      <div class="mycart">
+      </div>
+
+      <table width="100%" border="1" cellspacing="0" cellpading="20" class="mytable">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Qty</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody id="cartitems">
+
+        </tbody>
+      </table>
+  
+    </div>
+  </div>
+</body>
 </html>

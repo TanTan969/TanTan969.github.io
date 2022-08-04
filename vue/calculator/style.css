@@ -1,0 +1,51 @@
+#app{
+    height: 530px;
+    width: 550px;
+    border: solid 2px;
+    margin: 0px auto;
+    
+}
+label{
+    font-weight: bold;
+    padding-left: 35px;
+    margin-right: 10px;
+    
+}
+
+#inches,#weight{
+    margin-bottom: 50px;
+}
+
+h4{
+    margin-left: 25px;
+    margin-bottom: 0px;
+}
+
+ul{
+    margin-top: 10px;
+}
+
+button{
+    height: 50px;
+    width: 100px;
+    display: block;
+    margin: 0px auto;
+    border-radius: 5px;
+    
+}
+
+button:hover{
+    background-color: crimson;
+    color: white;
+}
+
+input{
+    height: 30px;
+    width: 150px;
+    margin-right: 10px;
+}
+
+.result{
+    text-align: center;
+    font-size: 30px;
+}

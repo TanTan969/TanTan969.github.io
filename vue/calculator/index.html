@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="main.js"></script>
+    
+</head>
+<body>
+    <div id="app">
+        <h2 align="center">{{header}}</h2>
+
+        <form action="" @submit.prevent="calculation(feet,inches,pounds)">
+            <label for="feet">Your Height</label>
+            <input type="number" id="feet" placeholder="feet" v-model.number="feet">
+            <input type="number" id="inches" placeholder="inches" v-model.number="inches"><br>
+            <label for="weight">Your weight</label>
+            <input type="number" id="weight" placeholder="Pounds" v-model.number="pounds"><br>
+            <button type="submit" >
+                Submit
+            </button>
+            
+        </form>
+
+        <h4>BMI catagories</h4>
+        <ul>
+            <li>{{cata1}} </li>
+            <li>{{cata2}}</li>
+            <li>{{cata3}}</li>
+            <li>{{cata4}}</li>
+        </ul>
+        <p v-bind:style="color" class="result">{{result}}</p>
+    </div>
+    
+    <script>
+        const mountedApp= app.mount("#app")
+      </script>
+</body>
+</html>
