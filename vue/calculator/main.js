@@ -43,7 +43,7 @@ const app = Vue.createApp({
       }
 
       else{
-        this.result="Error you havn't enter you height or weight!"
+        this.result="Error you havn't enter your height or weight!"
         
       }
 
