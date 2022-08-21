@@ -1,0 +1,20 @@
+$.get("https://restcountries.com/v3.1/all",function(resp){
+    // Get Data and add to document
+    console.log(resp)
+    var countries = resp;
+    var data = "";
+    for(const row of countries){
+        data+=`<div class="col-xl-3 col-lg-3 col-md-4 col-sm-6"><img src="${row.flags.png}" alt="" height="213px" width="355" class='my-5 py-3'><p class="h4 mx-3">Population: ${row.population}</p> <p class="h4 mx-3">Region: ${row.region}</p> <p class="h4 mx-3">Capital: ${row.capital}</p></div>`;
+    }
+    $("#countries").html(data); 
+    var rg="all"
+        $("#rge li").on('click',function(){
+            rg=$(this).attr("data-reg")
+            console.log(rg)
+         })
+        console.log(rg)
+        // $.get(`https://restcountries.com/v3.1/region/${rg}`,function(reg){
+// console.log(reg);
+
+// })
+    })

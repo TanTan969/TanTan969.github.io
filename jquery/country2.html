@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="earth.png">
+    <title>Country</title>
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light"> 
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="earth.png" alt="" width="30" height="30" class="d-inline-block align-text-top">
+            Rest Country
+          </a>
+        </div>
+      </nav>
+    <div class="container-fluid mt-5" id="main">
+        <div class="row" id="sec">
+            <div id="region" class="col-xl-6 col-md-6 col-lg-6 col-sm-6">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="text-align:right">
+                    Catagories
+                  </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" id="rge">
+                    <li class="dropdown-item"  data-reg="all">All</li>
+                    <li class="dropdown-item"  data-reg="africa">Africa</li>
+                    <li class="dropdown-item"  data-reg="ame">America</li>
+                    <li class="dropdown-item"  data-reg="asia">Asia</li>
+                    <li class="dropdown-item"  data-reg="europe">Europe</li>
+                    <li class="dropdown-item"  data-reg="oceania">Oceania</li>
+                </ul>
+                
+            </div>
+            <div id="search" class="col-xl-6 col-md-6 col-lg-6 col-sm-6" style="text-align:right">
+                <input type="text" placeholder="Search by name" name="search" id="srh">
+                    <input type="submit" value="Search">
+            </div>
+        </div>
+        
+    </div>
+    <!-- countries -->
+    <div container-fluid>
+        <div class="row" id="countries">
+            
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="jquery.min.js"></script>
+    <script>
+        $(function(){
+            var rg="all";
+            var p="";  
+            function countryData(cty){
+            $.get(cty,function(resp){
+                // Get Data and add to document
+                console.log(resp)
+                var countries = resp;
+                var data = "";
+                for(const row of countries){
+                    data+=`<div class="col-xl-3 col-lg-3 col-md-4 col-sm-6"><img src="${row.flags.png}" alt="" height="213px" width="355" class="mt-5 py-3"><h3 class="mx-3" style="font-weight:bold">${row.name.official}</h3><p class="h4 mx-3">Population: ${row.population.toLocaleString()}</p> <p class="h4 mx-3">Region: ${row.region}</p> <p class="h4 mx-3">Capital: ${row.capital}</p></div>` ;
+                }
+                
+                $("#countries").html(data);
+            })
+            
+            
+        }
+        
+            countryData("https://restcountries.com/v3.1/all");
+
+            // region
+            $("#rge li").on('click',function(){
+            rg=$(this).attr("data-reg")
+            console.log(rg); 
+            if(rg=="all"){
+                countryData("https://restcountries.com/v3.1/all");
+            }
+            else{
+                countryData(`https://restcountries.com/v3.1/region/${rg}`);
+            }   
+            })
+
+            // Search
+            $("#srh").on("keyup", function () {
+            
+            var search=$("input[name='search']").val();
+            console.log(search)
+            if (search == "") {
+                countryData("https://restcountries.com/v3.1/all")
+            }    
+             else {
+                countryData(`https://restcountries.com/v3.1/name/${search}`)
+                $("input[name='search']").val()="";
+
+               
+          }
+        })
+            
+           
+           
+    })
+    </script>
+</body>
+</html>
