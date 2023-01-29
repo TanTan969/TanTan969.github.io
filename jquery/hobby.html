@@ -29,8 +29,13 @@
                     $("input[type='checkbox']:checked").each(function(){
                     array.push($(this).val());
                     });
-
-                    alert(`My name is ${name} and my hobbies are ${array}`);
+                    console.log(array.length);
+                    if(array.length==1){
+                        alert(`My name is ${name} and my hobby is ${array}`);
+                    }
+                    else{
+                        alert(`My name is ${name} and my hobbies are ${array}`);
+                    }
                 })
                 
             })

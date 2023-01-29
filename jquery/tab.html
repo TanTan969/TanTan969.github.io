@@ -54,6 +54,11 @@
       width: 200px;
       height: 300px;
     }
+
+    .center{
+      display: flex;
+      justify-content: center;
+    }
   </style>
 
   <script src="jquery.min.js"></script>
@@ -115,7 +120,8 @@
     </div>
 
     <div class="content" id="shop">
-      <h2>Shop Page</h2>
+      <h2 align="center">Shop Page</h2>
+      <div class="center">
       <div class="products">
         <div class="item">
             <img src="pics/Boot.png" alt="Boot" class="pics">
@@ -135,6 +141,7 @@
             <p>4400 Ks</p>
             <button class="atcbtn" data-id="3" data-name="Jersey" data-price="20000">Addtocart</button>
         </div>
+      </div>
       </div>
     </div>
 

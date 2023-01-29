@@ -55,7 +55,7 @@ $(function () {
               body += `<tr>
                       <td>
                           ${id}
-                          <button class="delebtn">X</button>
+                          <button class="delebtn" data-index="${i}">X</button>
                       </td>
                       <td>${v.name}</td>
                       <td>${v.price}</td>
@@ -105,9 +105,21 @@ $(function () {
       var cartStr = localStorage.getItem('cart');
       var cartArr = JSON.parse(cartStr);
       cartArr[index].qty++;
-      // console.log(cartArr[index])
+       console.log(cartArr[index])
       localStorage.setItem('cart', JSON.stringify(cartArr));
       getData()
+  })
+  // Delete a record
+  $("#cartitems").on("click",".delebtn",function(){
+    var index = $(this).data('index');
+    var cartStr = localStorage.getItem('cart');
+    var cartArr = JSON.parse(cartStr);
+    var status = confirm("Are you sure to Delete?");
+    if(status == true){
+     cartArr.splice(index,1);
+    }
+    localStorage.setItem('cart', JSON.stringify(cartArr));
+    getData();
   })
 
   function numberFormat(x) {

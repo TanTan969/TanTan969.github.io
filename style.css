@@ -1,225 +1,80 @@
-body{
-    background-color: rgb(218, 218, 218);
-    margin: 0px;
-    color: rgb(46, 46, 46);
-}
-
-.box{
-    width: 100%;
-    height: 680px;
-    padding: 0px;
-
+@font-face {
+    font-family: nsw;
+    src: url(fonts/NSW/EduNSWACTFoundation-VariableFont_wght.ttf);
 
     
 }
-/* navbar */
-.navbox{
-    width: 100%;
-    height: 5px;
-    
+@font-face {
+    font-family: pfd;
+    src: url(fonts/pfd/PlayfairDisplay-Italic-VariableFont_wght.ttf);   
 }
 
-#nav{
-  
-    width: 100%;
-    background-color: rgb(234, 234, 234);
-    position: fixed;
-    top: 0px;
+@font-face {
+    font-family: nswbold;
+    src: url(fonts/NSW/static/EduNSWACTFoundation-Bold.ttf);
 }
 
-#nav h2{
-    display: inline-block;
-    padding-left: 20px;
-    margin-top: 10px;
-    position: absolute;
+.nsw{
+    font-family: nswbold;
+   
+}
 
+.pfd{
+    font-family: pfd;
 }
-ul{
-    float: right;
+
+
+.custombg-color{
+    background-color: #2f333a;
 }
+
 ul li{
+    font-family: nswbold;
+}
+ul li a:hover{
+    color:#0275d8 !important;
+    
+}
+
+.inline{
     display: inline-block;
-    font-size: 20px;
-
 }
 
-ul li a{
-
- margin-right: 20px;
- text-decoration: none;
- color: black;
+.crds:hover{
+    cursor: pointer;
+    border: solid 2px #008fb3;
+    background-color: rgba(0, 143, 179, 0.1);
+    
 }
 
-/* About */
-.about{
-   width: 100%;
-   height: 700px;
-   position: relative;
-   top: 50px;
-   margin: auto;
-   background-color: rgb(218, 218, 218);
-   border-bottom: solid 5px;
+.logo{
+    color:black;
+}
 
+.foot{
+    border: solid 1px #212529 !important;
+    color: white;
 }
 
 .profile{
-    width: 40%;
-    height: 700px;
-    float: right;
-    border-top-left-radius: 50%;
-    background-color: rgb(46, 46, 46);
-    text-align: center;
+    border-radius: 50% ;
+    height: 150px;
+    width: 150px;
 }
 
-.profile img{
-width: 200px;
-height: 200px;
-border-radius: 50%;
-margin-left: 50px;
-margin-bottom: 20px;
--webkit-filter: grayscale(100%);
-}
-
-.profile img:hover{
-    transform: scale(1.2);
-    -webkit-filter: none;
-    border: 0px;
-    transition: 0.3s;
-    cursor: pointer;
-}
-
-.profilebox{
-
-    width: 80%;
-    text-align: center;
-    margin: auto;
-    margin-top: 140px;
-    display: inline-block;
-
-}
-
-.aboutme{
-    font-weight: bold;
-    color: white;
-    font-size: 25px;
-    text-align: left;
-    float: right;
+.pfcard{
     
-    
-}
-.description{
-    width: 550px;
-    display: inline-block;
-    font-size: large;
-    margin-top: 90px;
-    margin-left: 180px;
-
-
-}
-.description p{
-    font-size: 30px;
-    line-height: 40px;
-
-}
-/* assignment */
-.assign{
-    width: 60%;
-    border: solid 2px;
+    background-color: rgb(250, 201, 210);
+    border-left: 0px;
     border-radius: 5px;
-    margin: auto;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    padding: 20px;
-    background-color: rgb(230, 230, 230);
+}
+.abt{
+   
+    background-color: #c5e1ff;
+    border-radius: 5px;
+   
 }
 
-.htmltxt,.jstxt,.csstxt,.jqtxt{
-    margin: 30px;
-    width: 170px;
-    height:220px;
-    border:solid 1px;
-    border-radius: 10px;
-    -webkit-filter: grayscale(100%);
-    transition: 0.3s;
-    display: inline-block;
-    text-align: center;
-}
-
-.htmltxt:hover{
-    color: red;
-    transform: scale(1.1);
-    -webkit-filter: none;
-    transition: 0.3s;
-    background-color: white;
-    border: 1px solid black;
-}
-
-.jstxt:hover{
-    color:darkgoldenrod;
-    transform: scale(1.1);
-    -webkit-filter: none;
-    transition: 0.3s;
-    background-color: white;
-    border: 0px;
-    border: 1px solid black;
-}
-
-.csstxt:hover{
-    color: blue;
-    transform: scale(1.1);
-    -webkit-filter: none;
-    transition: 0.3s;
-    background-color: white;
-    border: 0px;
-    border: 1px solid black;
-}
-
-.jqtxt:hover{
-    color: black;
-    transform: scale(1.1);
-    -webkit-filter: none;
-    transition: 0.3s;
-    background-color: white;
-    border: 0px;
-    border: 1px solid black;
-}
-/* bg pic and vid */
-
-.blackrose{
-    width: 100px;
-    position: absolute;
-    top: 595px;
-    left: 20px;
-}
-
-#spinning{
-    width: 100px;
-    margin-left: 750px;
-}
-/* contact */
-#contact{
-    background-color: rgb(46, 46, 46);
-    color: white;
-}
-
-
-.ctt{
-    width: 80%;
-    margin: auto;
-    height: 200px;
-    text-align: center;
-
-}
-
-.contactbox{
-    display: inline-block;
-    text-align: center;
-    margin: 30px;
-    width: 25%;
-}
-
-.contactbox img{
-    height: 100px;
-    width: 100px;
-    -webkit-filter: grayscale(100%);
+body{
+    background-color: rgb(249, 249, 249);
 }
